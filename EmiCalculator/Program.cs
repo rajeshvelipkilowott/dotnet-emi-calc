@@ -8,26 +8,42 @@ namespace EmiCalculator
     {
         static void Main(string[] args)
         {
-            double Total = 0, i, years, n, p, memi;
-            Console.Write("Enter the principal Amount : ");
-            p = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Enter the Rate of Interest : ");
-            i = Convert.ToDouble(Console.ReadLine()) / 100;
-            Console.Write("Enter the Number of Years : ");
-            years = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Number of Times the Interest will be Compounded monthly : ");
-            n = Convert.ToDouble(Console.ReadLine());
-            for (int t = 1; t < years + 1; t++)
+            double i;
+            int p, y, n;
+            try
             {
-                Total = p * Math.Pow((1 + i / n),
-                                         (n * t));
-                Console.Write("Your Total for Month {0} "
-                            + "is {1:F0}. \n", t, Total);
+                Console.Write("Enter the principal Amount : ");
+                p = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Enter the Rate of Interest : ");
+                i = Convert.ToInt32(Console.ReadLine());
+                double ROI = i / 100;
+                Console.Write("Enter the Number of Years : ");
+                y = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Number of Times the Interest will be Compounded monthly : ");
+                n = Convert.ToInt32(Console.ReadLine());
 
-                
+                var Obj = new Calculator();
+
+                Obj.Principal = p;
+                Obj.Interest = ROI;
+                Obj.Year = y;
+                Obj.NCompound = n;
+
+                var res = Obj.GetResult();
+
+                Console.WriteLine($"Monthly Emi: {res.calculate} INR");
+
+                // memi = Total / n;
+                // Console.Write("Calculated Compound Interest: ", memi);
             }
-           // memi = Total / n;
-           // Console.Write("Calculated Compound Interest: ", memi);
+            catch (FormatException e)
+            {
+
+                Console.WriteLine("Please convert integer to double");
+            }
+            
+
+
 
             Console.ReadLine();
         }
