@@ -8,7 +8,7 @@ namespace EmiApp.Cmdline
         {
             var emiRequest = new Request() { Principal = 100000, InterestRateInPercentage = 12, LoanDurationInYearCount = 2 };
             ICalculator emiCalculator = new Calculator();
-            Console.WriteLine(emiRequest);
+           
             #region monthly compounding
             var emiMonthly = emiCalculator.CalculateMonthlyEmi(emiRequest);
             if (string.IsNullOrEmpty(emiMonthly.ErrorMessage))
