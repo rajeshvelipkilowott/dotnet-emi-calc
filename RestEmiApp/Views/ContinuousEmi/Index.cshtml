@@ -1,0 +1,21 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model WebApplication1.Models.Request
+<!DOCTYPE html>
+<html>
+   <body>
+       <form method="post" action="ContinuousEmi/Result">
+      <br />
+      <label>Principal Amount :</label>
+     <input type="number" name="principal">
+     <label>Rate of Interest : </label>
+     <input type="number" name="rate">
+     <label>Loan Duration : </label>
+     <input type="number" name="duration">
+     <input type="submit" value="Submit">
+     </form>
+    </body>
+</html>
